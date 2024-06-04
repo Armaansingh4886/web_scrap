@@ -24,8 +24,8 @@ def save(data):
         )
 # CREATING TABLE IN DATABASE
         cur = conn.cursor()
-        cur.execute('DROP TABLE IF EXISTS properties')
-        create_table='''CREATE TABLE IF NOT EXISTS properties(
+        cur.execute('DROP TABLE IF EXISTS companies')
+        create_table='''CREATE TABLE IF NOT EXISTS companies(
                         id              SERIAL PRIMARY KEY,
                         rank            varchar(200),
                         name            varchar(200) ,
@@ -34,9 +34,9 @@ def save(data):
                         headquarters    varchar(200)        )'''
         cur.execute(create_table)
     # INSERTING DATA TO DATABASE
-        insert_data = 'INSERT INTO properties (rank,name,industry,revenue,headquarters) VALUES (%s,%s,%s,%s,%s)'
+        insert_data = 'INSERT INTO companies (rank,name,industry,revenue,headquarters) VALUES (%s,%s,%s,%s,%s)'
         for item in data:
-            print(item)
+            # print(item)
             insert_values=item
             cur.execute(insert_data,insert_values)
         conn.commit()
