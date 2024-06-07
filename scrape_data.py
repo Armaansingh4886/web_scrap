@@ -11,6 +11,7 @@ response = requests.get(url)
 #  FINDING RELEVENT DATA
 soup = BeautifulSoup(response.text,'html.parser')
 sys.stdout.reconfigure(encoding='utf-8')
+#   FINDING ELEMENT FROM WEBPAGE TO GET THE TABLE
 content = soup.find("table",class_="wikitable")
 tablebody = content.find("tbody")
 items = tablebody.find_all("tr")
@@ -45,4 +46,4 @@ save.save(data)
 
 # USE THIS FUNCTION TO UPDATE VALUE IN DATABASE AND ARGUMENTS PASSED ARE ( NEW_RANK ,NEW_NAME ,NEW_INDUSTRY ,NEW_REVENUE ,NEW_HEADQUARTERS ,RANK_OF_DATA_TO_BE_UPDATED ,NAME_OF_DATA_TO_BE_UPDATED)
 #  IF YOU DONT WANT TO UPDATE ANY VALUE THAN SIMPLY REMAIN THAT FIELD BLANK AS ("")
-# crud.update(["5","","12","aa","aa","52","Adyar Ananda Bhavan"])
+crud.update(["5","","12","aa","aa","52","Adyar Ananda Bhavan"])
