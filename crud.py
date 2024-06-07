@@ -62,7 +62,7 @@ def update(data):
 
     # Execute the SELECT statement
     cur.execute(select_query, (data[5],data[6]))
-    print(data[5],data[6])
+    # print(data[5],data[6])
     # Fetch the row
     row = cur.fetchone()
 
